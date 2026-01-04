@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Healify.AI – AI-powered Health Platform</title>
+
+<style>
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  background: #f4f7fb;
+  color: #2c3e50;
+}
+
+/* ================= HEADER ================= */
+header {
+  background: white;
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.auth-buttons button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #4d514d;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.auth-buttons button:hover {
+  background-color: #4d514d;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.logo span {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ================= HERO ================= */
+.hero {
+  padding: 90px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #6a8dff, #8fd3f4);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.95;
+  margin-bottom: 30px;
+}
+
+.hero button {
+  background: white;
+  color: #4b6cff;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* ================= ARTICLES ================= */
+.article-section {
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.article-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.article-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.article-title h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.article-card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.article-card:hover {
+  transform: translateY(-6px);
+}
+
+.article-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.article-card .content {
+  padding: 16px;
+}
+
+.article-card h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.article-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* ================= PRODUCT ================= */
+.product-section {
+  padding: 80px 20px;
+}
+
+.product-container {
+  max-width: 1200px;
+  margin: auto;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(16px);
+  border-radius: 32px;
+  padding: 60px 40px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+
+.product-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.product-title h2 {
+  font-size: 36px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 20px;
+  padding: 22px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.product-img {
+  height: 180px;
+  background: #f1f4f9;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-card h3 {
+  font-size: 18px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #4b6cff;
+  margin: 10px 0;
+}
+
+.desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+.product-card button {
+  background: linear-gradient(135deg, #4b6cff, #6a8dff);
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1100px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .article-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .product-grid { grid-template-columns: 1fr; }
+  .article-grid { grid-template-columns: 1fr; }
+}
+
+/* ================= FOOTER ================= */
+footer {
+  margin-top: 80px;
+  padding: 20px;
+  text-align: center;
+  background: #2c3e50;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo moi.png">
+    <span>AI-powered Personalized Health E-commerce Platform</span>
+  </div>
+    <div class="auth-buttons">
+    <button onclick="location.href='Untitled-1.html'">Introduction</button>
+    <button onclick="location.href='Product.html'">Products</button>
+    <button onclick="location.href='login.html'">Login</button>
+    <button onclick="location.href='register.html'">Register</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Your Health. Powered by AI.</h1>
+  <p>Personalized health plans, AI coaching & wellness products</p>
+  <button onclick="location.href='assessment.html'">
+    Start Free Health Assessment
+  </button>
+</section>
+
+<!-- ===== HEALTH ARTICLES ===== -->
+<section class="article-section">
+  <div class="article-container">
+    <div class="article-title">
+      <h2>Health Articles</h2>
+      <p>Expert insights for a healthier lifestyle</p>
+    </div>
+
+    <div class="article-grid">
+      <div class="article-card">
+        <img src="plan.jpg">
+        <div class="content">
+          <h3>Healthy Diet Planning</h3>
+          <p>Balanced nutrition plans to improve physical health.</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="tracking.jpg">
+        <div class="content">
+          <h3>Smart Health Tracking</h3>
+          <p>Monitor your health indicators effectively.</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="busy.jpg">
+        <div class="content">
+          <h3>Exercise for Busy People</h3>
+          <p>Quick workouts for modern lifestyles.</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="mental.jpg">
+        <div class="content">
+          <h3>Mental Health Care</h3>
+          <p>Maintain emotional and mental balance.</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="ytdp.jpg">
+        <div class="content">
+          <h3>Preventive Healthcare</h3>
+          <p>Early prevention reduces long-term risks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="product-section" id="products">
+  <div class="product-container">
+
+    <div class="product-title">
+      <h2>Our Plans</h2>
+      <p>Choose the plan that fits your lifestyle</p>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"><img src="0vnd.jpg"></div>
+        <h3>Free Health Plan</h3>
+        <div class="price">0 VND</div>
+        <div class="desc">Basic tracking & guidance</div>
+        <button onclick="selectPlan('free')"> Get Started </button>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="99vnd.jpg"></div>
+        <h3>Premium Plan</h3>
+        <div class="price">99,000 VND</div>
+        <div class="desc">AI personalization</div>
+        <button onclick="selectPlan('paid')"> Order Now </button>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="199.jpg"></div>
+        <h3>AI Health Coaching</h3>
+        <div class="price">199,000 VND</div>
+        <div class="desc">1-on-1 AI coaching</div>
+        <button onclick="selectPlan('paid')"> Order Now </button>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="pluss.jpg"></div>
+        <h3>Premium Plus</h3>
+        <div class="price">299,000 VND</div>
+        <div class="desc">Advanced AI reports</div>
+        <button onclick="selectPlan('paid')"> Order Now </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Healify.AI – AI-powered Health Platform
+</footer>
+
+<script>
+function selectPlan(planType){
+  localStorage.setItem("selectedPlan", planType);
+  window.location.href = "register.html";
+}
+</script>
+
+</body>
+</html>

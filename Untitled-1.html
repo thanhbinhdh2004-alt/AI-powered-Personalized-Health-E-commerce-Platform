@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Landing Page</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #eef3f8;
+    color: #1f2d3d;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+    background: #fff;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2b6cb0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: #2b6cb0;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+    padding: 20px 8%;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    background: #f7fbff;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 28px;
+}
+
+.hero img {
+    width: 100%;
+    border-radius: 16px;
+}
+
+/* ---------- SECTION ---------- */
+.section {
+    padding: 70px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* ---------- SERVICES ---------- */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.service-card {
+    background: #fff;
+    padding: 26px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.service-card h4 {
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ---------- WELLNESS ---------- */
+.wellness {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.wellness img {
+    width: 100%;
+    border-radius: 50%;
+    max-width: 320px;
+    margin: auto;
+}
+
+/* ---------- LAB TEST ---------- */
+.lab-tests {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.lab-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* ---------- TEAM ---------- */
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.team-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.team-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+/* ---------- APPOINTMENT ---------- */
+.appointment {
+    background: #2b6cb0;
+    color: #fff;
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.appointment h2 {
+    margin-bottom: 20px;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    background: #1a202c;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .hero, .wellness {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.logo span {
+  font-weight: 700;
+  font-size: 18px;
+}
+.section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+.lab-tests {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.lab-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 50px 24px 30px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    position: relative;
+    transition: 0.3s;
+}
+
+.lab-card:hover {
+    transform: translateY(-10px);
+}
+
+.lab-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #4b6cff, #8fd3f4);
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 10px 25px rgba(75,108,255,0.4);
+}
+
+.lab-card h3 {
+    margin-top: 10px;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.lab-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ================= HERO-index ================= */
+.hero-index {
+  padding: 90px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #6a8dff, #8fd3f4);
+  color: white;
+}
+
+.hero-index h1 {
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+
+.hero-index p {
+  font-size: 18px;
+  opacity: 0.95;
+  margin-bottom: 30px;
+}
+
+.hero-index button {
+  background: white;
+  color: #4b6cff;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* ================= ARTICLES ================= */
+.article-section {
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.article-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.article-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.article-title h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.article-card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.article-card:hover {
+  transform: translateY(-6px);
+}
+
+.article-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.article-card .content {
+  padding: 16px;
+}
+
+.article-card h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.article-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">
+    <img src="logo moi.png">
+  </div>
+<div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="Product.html">Products</a>
+</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>Your health, our priority</h1>
+        <p>
+            Our dedicated team is committed to providing comprehensive and
+            compassionate care, tailored to your unique needs.
+        </p>
+        <button class="btn-primary">Advise now</button>
+    </div>
+    <img src="docto.png" alt="Doctors">
+</section>
+
+<!-- ===== HEALTH ARTICLES ===== -->
+<section class="article-section">
+  <div class="article-container">
+    <div class="article-title">
+      <h2>Health Articles</h2>
+      <p>Expert insights for a healthier lifestyle</p>
+    </div>
+
+    <div class="article-grid">
+      <div class="article-card">
+        <img src="plan.jpg">
+        <div class="content">
+          <h3>Healthy Diet Planning</h3>
+          <p>Balanced nutrition plans to improve physical health.</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="tracking.jpg">
+        <div class="content">
+          <h3>Smart Health Tracking</h3>
+          <p>Monitor your health indicators effectively.</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="busy.jpg">
+        <div class="content">
+          <h3>Exercise for Busy People</h3>
+          <p>Quick workouts for modern lifestyles.</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="mental.jpg">
+        <div class="content">
+          <h3>Mental Health Care</h3>
+          <p>Maintain emotional and mental balance.</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="ytdp.jpg">
+        <div class="content">
+          <h3>Preventive Healthcare</h3>
+          <p>Early prevention reduces long-term risks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+    <h2 class="section-title">Services</h2>
+
+    <div class="services">
+        <div class="service-card">
+            <h4>AI Personalized Health Assessment</h4>
+            <p>Analyze your health data and lifestyle to 
+                generate a personalized health profile.</p>
+        </div>
+        <div class="service-card">
+            <h4>Smart Nutrition & Meal Planning</h4>
+            <p>AI-generated meal plans based on your 
+                health goals and preferences.</p>
+        </div>
+        <div class="service-card">
+            <h4>AI Fitness & Workout Coaching</h4>
+            <p>Personalized workout plans tailored to 
+                your fitness level and schedule.</p>
+        </div>
+        <div class="service-card">
+            <h4>Premium Health Services Marketplace</h4>
+            <p>Access exclusive health services designed 
+                for your personal needs.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- LAB TEST -->
+<section class="section">
+    <h2 class="section-title">Smart Lab Testing & Health Analysis</h2>
+
+    <div class="lab-tests">
+        <div class="lab-card">
+            <div class="lab-icon">🤖</div>
+            <h3>AI Health Assessment</h3>
+            <p>AI-powered analysis to understand your health condition.</p>
+        </div>
+
+        <div class="lab-card">
+            <div class="lab-icon">🥗</div>
+            <h3>Smart Nutrition</h3>
+            <p>Personalized nutrition plans based on your body data.</p>
+        </div>
+
+        <div class="lab-card">
+            <div class="lab-icon">💪</div>
+            <h3>Fitness Coaching</h3>
+            <p>AI fitness coaching adapted to your lifestyle.</p>
+        </div>
+
+        <div class="lab-card">
+            <div class="lab-icon">🧪</div>
+            <h3>Lab Test Services</h3>
+            <p>Comprehensive lab tests with accurate reports.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- TEAM -->
+<section class="section">
+    <h2 class="section-title">Our Team</h2>
+
+    <div class="team">
+        <div class="team-card">
+            <img src="mtrang.png">
+            <h4>Tran Thi Quynh Trang</h4>
+            <p>Consultant</p>
+        </div>
+        <div class="team-card">
+            <img src="mnhu.png">
+            <h4>Nguyen Vien Nhu</h4>
+            <p>Technical Specialist</p>
+        </div>
+        <div class="team-card">
+            <img src="mlinh.png">
+            <h4>Nguyen Thi Thao Linh</h4>
+            <p>Marketing</p>
+        </div>
+        <div class="team-card">
+            <img src="binh.jpg">
+            <h4>Ho Thanh Binh</h4>
+            <p>Accounting</p>
+        </div>
+    </div>
+</section>
+
+<section class="hero-index">
+  <h1>Your Health. Powered by AI.</h1>
+  <p>Personalized health plans, AI coaching & wellness products</p>
+  <button onclick="location.href='assessment.html'">
+    Start Free Health Assessment
+  </button>
+</section>
+
+<footer>
+    © 2026 Medical Healthcare. All rights reserved.
+</footer>
+
+</body>
+</html>

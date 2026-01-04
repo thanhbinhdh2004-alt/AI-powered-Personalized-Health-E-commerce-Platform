@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healify Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif;}
+    body { background-color: #f0f4f8; color: #333;}
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: linear-gradient(90deg, #2e95cc, #2e95cc);
+      color: white;
+    }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.logo span {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+    header .user-info button { padding: 8px 16px; border:none; border-radius:5px; background:#fff; color:#2e95cc; font-weight:600; cursor:pointer; transition:0.3s; }
+    header .user-info button:hover { background:#e0e0e0; }
+
+    .dashboard { max-width:1200px; margin:40px auto; padding:0 20px; }
+    .dashboard h1 { font-size:32px; margin-bottom:20px; color:#2e95cc; }
+
+    .plans { display:flex; flex-wrap:wrap; gap:20px; }
+
+    .plan-card {
+      flex:1 1 250px;
+      background:white;
+      border-radius:10px;
+      padding:20px;
+      box-shadow:0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .plan-card:hover { transform: translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.15); }
+    .plan-card h2 { margin-bottom:10px; color:#2e95cc; position:relative; }
+
+    /* Badge gói đang sử dụng, chỉ admin hiển thị */
+    .active-plan { 
+      background-color: #2e95cc; 
+      color:white; 
+      padding:5px 10px; 
+      border-radius:5px; 
+      font-size:12px; 
+      font-weight:700; 
+      position:absolute; 
+      right:0; top:0; 
+      pointer-events: none; /* không click được */
+    }
+
+    .plan-card ul { list-style:none; margin-top:10px; }
+    .plan-card ul li { padding:6px 0; border-bottom:1px solid #f0f0f0; }
+    .plan-card ul li:last-child { border-bottom:none; }
+
+    .plan-card button {
+      margin-top:15px; padding:10px 20px; width:100%; border:none; border-radius:5px;
+      background-color:#2e95cc; color:white; font-weight:600; cursor:pointer; transition:0.3s;
+    }
+    .plan-card button:hover { background-color:#2e95cc; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logotrang.png" alt="Healify Logo">
+  </div>
+  <div class="user-info">
+    <span id="username">Hello, Binh</span>
+    <button onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<div class="dashboard">
+  <h1>Dashboard</h1>
+  <div class="plans">
+    <div class="plan-card" id="free-plan">
+      <h2>Free Health Plan <span class="active-plan" id="badge-free">In Use</span></h2>
+      <ul>
+        <li>Basic health assessment</li>
+        <li>Limited AI consultation</li>
+        <li>Access to health articles</li>
+      </ul>
+      <button onclick="alert('Bạn không thể tự bật gói Free Health Plan');">Choose pack</button>
+    </div>
+
+    <div class="plan-card" id="premium-plan">
+      <h2>Premium Plan <span class="active-plan" id="badge-premium">In Use</span></h2>
+      <ul>
+        <li>Advanced health evaluation</li>
+        <li>Unlimited AI consultation</li>
+        <li>Access to premium videos & articles</li>
+      </ul>
+      <button onclick="alert('You need admin provide pack Premium');">Choose pack</button>
+    </div>
+
+    <div class="plan-card" id="ai-plan">
+      <h2>AI Health Coaching <span class="active-plan" id="badge-ai">In Use</span></h2>
+      <ul>
+        <li>Personalized nutrition planning</li>
+        <li>AI workout planning</li>
+        <li>Health reminders & tracking</li>
+      </ul>
+      <button onclick="alert('You need admin provide pack AI Health Coaching');">Choose pack</button>
+    </div>
+
+    <div class="plan-card" id="premium-plus-plan">
+      <h2>Premium Plus <span class="active-plan" id="badge-plus">In Use</span></h2>
+      <ul>
+        <li>All Premium features</li>
+        <li>Direct coaching with experts</li>
+        <li>Priority support & regular check-ups</li>
+      </ul>
+      <button onclick="alert('You need admin provide pack Premium Plus');">Choose pack</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Biến giả lập gói thực tế mà admin cấp
+  let currentPlan = "Premium Plus"; // <-- admin cấp
+
+  // Ẩn tất cả badge trước
+  function updateActivePlan() {
+    document.querySelectorAll('.active-plan').forEach(b => b.style.display = 'none');
+
+    if(currentPlan === "Free Health Plan") {
+      document.getElementById('badge-free').style.display = 'inline-block';
+    } else if(currentPlan === "Premium Plan") {
+      document.getElementById('badge-premium').style.display = 'inline-block';
+    } else if(currentPlan === "AI Health Coaching") {
+      document.getElementById('badge-ai').style.display = 'inline-block';
+    } else if(currentPlan === "Premium Plus") {
+      document.getElementById('badge-plus').style.display = 'inline-block';
+    }
+  }
+
+  function logout() {
+    alert("Logout successful!");
+    window.location.href = 'index.html';
+  }
+
+  // Load trang
+  updateActivePlan();
+</script>
+
+</body>
+</html>

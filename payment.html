@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Payment | Healify.AI</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#f5f6fa;
+  text-align:center;
+}
+.box{
+  background:white;
+  max-width:400px;
+  margin:80px auto;
+  padding:30px;
+  border-radius:12px;
+}
+img{
+  width:220px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Complete Your Payment</h2>
+  <img src="1a193d8dcfcbc55c37de4acae8a8669d.jpg" alt="QR Code">
+  <p><strong>Consultant:</strong> 0987 654 321</p>
+  <p>Please scan the QR code to complete payment.</p>
+  <button onclick="confirmPayment()">I Have Paid</button>
+</div>
+
+<script>
+function confirmPayment() {
+  let user = JSON.parse(localStorage.getItem("currentUser"));
+  user.plan = localStorage.getItem("selectedPlan");
+  localStorage.setItem("currentUser", JSON.stringify(user));
+
+  window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>

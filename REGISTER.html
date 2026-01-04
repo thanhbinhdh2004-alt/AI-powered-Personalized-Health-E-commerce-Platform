@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register | Healify.AI</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#f5f6fa;
+}
+.container{
+  max-width:420px;
+  margin:80px auto;
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+input{
+  width:100%;
+  padding:10px;
+  margin-bottom:15px;
+}
+button{
+  width:100%;
+  padding:12px;
+  background:#2e95cc;
+  color:white;
+  border:none;
+  border-radius:6px;
+  font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Create Account</h2>
+  <p>Register to continue</p>
+
+  <input type="text" placeholder="Full name">
+  <input type="email" placeholder="Email">
+  <input type="password" placeholder="Password">
+  <input type="phone" placeholder="Phone number">
+
+  <button onclick="handleRegister()">Register</button>
+</div>
+
+<script>
+function handleRegister(){
+  const plan = localStorage.getItem("selectedPlan");
+
+  if(plan === "free"){
+    window.location.href = "dashboard.html";
+  } else {
+    window.location.href = "payment.html";
+  }
+}
+</script>
+
+</body>
+</html>
